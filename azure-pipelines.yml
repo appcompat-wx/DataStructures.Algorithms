@@ -1,0 +1,172 @@
+# Starter pipeline
+
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
+pool:
+#  vmImage: 'windows-latest'
+   vmImage: 'windows-2022'
+
+variables:
+- name: BuildId
+  value: '$(Build.BuildID)'
+
+steps:
+
+
+- task: CmdLine@2
+  inputs:
+    script: 'dotnet --info'
+- task: PowerShell@2
+  name: setvariable
+  displayName: 'setting variables MajorVersion, MinorVersion, DayOfMonth'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $year=$(Get-Date -Format 'yy')
+      Write-Host $year
+      Write-Host "##vso[task.setvariable variable=MajorVersion]$year"
+      $month=[datetime]::Today.Month.ToString('0') 
+      Write-Host $month
+      Write-Host "##vso[task.setvariable variable=MinorVersion]$month"
+      $day=$(Get-Date -Format 'dd')
+      Write-Host $day
+      Write-Host "##vso[task.setvariable variable=DayOfMonth]$day"
+      $version="$year.$month.$(BuildID).0"
+      Write-Host $version
+      Write-Host "##vso[task.setvariable variable=version]$version"
+
+- task: PowerShell@2
+  displayName: 'pump version to $(version)'
+  inputs:
+    workingDirectory: '$(Build.SourcesDirectory)'
+    targetType: 'inline'
+    script: |
+      Write-Host "Set version: $(version)"
+      $version = "$(version)"
+      $outputversion = "$(version)"
+
+      # Apply the version to the assembly property files
+      $VersionRegex = "\d+\.\d+\.\d+\.\d+"
+      $assemblyInfoFiles = gci . -recurse -include "*Properties*","My Project" | 
+          ?{ $_.PSIsContainer } | 
+          foreach { gci -Path $_.FullName -Recurse -include AssemblyInfo.* }
+      
+      if($assemblyInfoFiles)
+      {
+          Write-Host "Will apply $AssemblyVersion to $($assemblyInfoFiles.count) Assembly Info Files."
+      
+          foreach ($file in $assemblyInfoFiles) {
+              $filecontent = Get-Content($file)
+              attrib $file -r
+              $filecontent -replace $VersionRegex, $version  | Out-File $file utf8
+      
+              Write-Host "$file.FullName - $version version applied"
+          }
+      }
+      else
+      {
+          Write-Warning "No Assembly Info Files found."
+      }
+
+- task: DotNetCoreCLI@2
+  displayName: build solution release
+  inputs:
+    command: 'build'
+    projects: 'DataStructures.UI.sln'
+    arguments: '--configuration=Release --verbosity=n'
+
+- task: DotNetCoreCLI@2
+  displayName: build solution debug for nuget
+  inputs:
+    command: 'build'
+    projects: 'DataStructures.UI.sln'
+    arguments: '--configuration=Debug --verbosity=n'
+
+#- task: DotNetCoreCLI@2
+#  displayName: benchmark
+#  inputs:
+#    command: 'run'
+#    arguments: '-c Release --project DataStructures.Algorithms.Graph.Test\DataStructures.Algorithms.Graph.Test.csproj --framework=netcoreapp3.1 --filter *GraphBenchmark* --verbosity=n'
+
+- script: dotnet test DataStructures.sln --verbosity=n --logger trx  --collect "Code coverage"
+  displayName: 'run test'
+  condition: succeeded()
+
+- task: PublishTestResults@2
+  displayName: publish test results
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '**/**/*.trx'
+
+- task: DotNetCoreCLI@2
+  displayName: create nuget DataStructures;Algorithms.Graph
+  condition: succeeded()
+  inputs:
+    command: 'pack'
+    arguments: '--include-symbols --include-source --output $(Build.ArtifactStagingDirectory)'
+    packagesToPack: '**/**/DataStructures.csproj;**/**/DataStructures.Algorithms.csproj;**/**/DataStructures.Algorithms.Graph.csproj;'
+    includesymbols: true
+    includesource: true
+    versioningScheme: 'byBuildNumber'
+    verbosityPack: 'Normal'
+
+- task: DotNetCoreCLI@2
+  displayName: build DataStructures.UI
+  inputs:
+    command: 'build'
+    projects: '**/**/**/DataStructures.UI.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: create nuget DataStructures.UI
+  condition: succeeded()
+  inputs:
+    command: 'pack'
+    arguments: '--include-symbols --include-source --output $(Build.ArtifactStagingDirectory)'
+    packagesToPack: '**/**/**/DataStructures.UI.csproj;'
+    includesymbols: true
+    includesource: true
+    versioningScheme: 'byBuildNumber'
+    verbosityPack: 'Normal'
+
+- task: DocFxTask@0
+  inputs:
+    solution: 'docs\docfx.json'
+    docfxOptions: '--build'
+
+- task: CmdLine@2
+  inputs:
+    script: 'xcopy /e /k /h /i docs\_site $(build.artifactstagingdirectory)\_site'
+
+
+#- task: NuGetCommand@2
+#  displayName: 'NuGet push'
+#  inputs:
+#    command: 'push'
+#    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+#    nuGetFeedType: 'internal'
+#    publishVstsFeed: '3bf81259-ccfe-4071-b8f8-bb5f44d4a8fb'
+#    allowPackageConflicts: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'creating DataStructures.Demo in $(build.artifactstagingdirectory)'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    arguments: '-r win-x64 -c debug --no-restore /p:PublishSingleFile=true -o $(build.artifactstagingdirectory)/DataStructures.UI.Demo'
+    workingDirectory: 'src/DataStructures.UI/DataStructures.UI.Demo'
+
+- task: PublishBuildArtifacts@1
+  condition: succeededOrFailed()
+  displayName: "Upload Artifacts"
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'DataStructures' 

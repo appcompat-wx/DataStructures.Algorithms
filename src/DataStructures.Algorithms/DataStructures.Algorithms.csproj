@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <TargetFramework>net6.0</TargetFramework>
+    <Version>0.2.0</Version>
+    <Authors></Authors>
+    <Company />
+    
+    <Description>
+      Algorithms for sorting and searching
+      Containing Quicksort, Sub Sort Transpose Sort, SelectionSort, InsertionSort, MergeSort, InOrder, PreOrder, Binary Search
+    </Description>
+    <PackageProjectUrl>https://github.com/mfe-/DataStructures.Algorithms</PackageProjectUrl>
+    <PackageTags>Quicksort, Sub Sort Transpose Sort, SelectionSort, InsertionSort, MergeSort, InOrder, PreOrder, Binary Search</PackageTags>
+    <Copyright>Copyright © 2011-2020</Copyright>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <AssemblyVersion>0.12.0.0</AssemblyVersion>
+    <FileVersion>0.12.0.0</FileVersion>
+    <ProductName>Abstract.DataStructures.Algorithms</ProductName>
+    <AssemblyName>Abstract.DataStructures.Algorithms</AssemblyName>
+    <RootNamespace>DataStructures.Algorithms</RootNamespace>
+    <OutputType>Library</OutputType>
+
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Product>Algorithms</Product>
+    <Icon>https://get-the-solution.net/favicon.ico</Icon>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryUrl>https://github.com/mfe-/DataStructures.Algorithms.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE" Link="LICENSE">
+      <PackagePath></PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Serialization.Xml" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj" />
+  </ItemGroup>
+</Project>
