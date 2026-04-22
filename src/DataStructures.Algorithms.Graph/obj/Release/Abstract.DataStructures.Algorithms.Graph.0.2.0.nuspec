@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Abstract.DataStructures.Algorithms.Graph</id>
+    <version>0.2.0</version>
+    <authors>Martin F.</authors>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <projectUrl>https://github.com/mfe-/DataStructures.Algorithms</projectUrl>
+    <description>Algorithms related to graphs. 
+      Contains DepthFirstSearch, BreadthFirstSearch, Astar</description>
+    <copyright>Copyright © 2011-2020</copyright>
+    <tags>DepthFirstSearch ,BreadthFirstSearch ,Astar ,DFS ,BFS ,A*</tags>
+    <repository type="git" url="https://github.com/mfe-/DataStructures.Algorithms.git" />
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Abstract.DataStructures" version="0.2.2" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime.Serialization.Formatters" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime.Serialization.Xml" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\bin\Release\net6.0\Abstract.DataStructures.Algorithms.Graph.pdb" target="lib\net6.0\Abstract.DataStructures.Algorithms.Graph.pdb" />
+    <file src="C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\bin\Release\net6.0\Abstract.DataStructures.Algorithms.Graph.dll" target="lib\net6.0\Abstract.DataStructures.Algorithms.Graph.dll" />
+    <file src="C:\AppBuild\Abstract DataStructures Algorithms\src\LICENSE" target="LICENSE" />
+  </files>
+</package>

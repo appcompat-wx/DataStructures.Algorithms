@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Abstract.DataStructures</id>
+    <version>0.2.2</version>
+    <authors>Martin F.</authors>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <projectUrl>https://github.com/mfe-/DataStructures.Algorithms</projectUrl>
+    <description>DataStructures for graphs, vertices,edges,nodes and trees.
+      Contains a Binary Search Tree, AVL Tree and a PriorityQueue based on BST Tree which can handle duplicates</description>
+    <copyright>Copyright © 2011-2020</copyright>
+    <tags>graph, vertex, edge, vertices, edges, Binary Search Tree, BST, AVL, PriorityQueue, Priority Queue</tags>
+    <repository type="git" url="https://github.com/mfe-/DataStructures.Algorithms.git" />
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="System.Runtime.Serialization.Xml" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\bin\Release\net6.0\Abstract.DataStructures.pdb" target="lib\net6.0\Abstract.DataStructures.pdb" />
+    <file src="C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\bin\Release\net6.0\Abstract.DataStructures.dll" target="lib\net6.0\Abstract.DataStructures.dll" />
+    <file src="C:\AppBuild\Abstract DataStructures Algorithms\src\LICENSE" target="LICENSE" />
+  </files>
+</package>

@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Abstract.DataStructures.UI/1.0.0": {
+        "dependencies": {
+          "Abstract.DataStructures": "0.2.2",
+          "Abstract.DataStructures.Reference": "0.12.0.0"
+        },
+        "runtime": {
+          "Abstract.DataStructures.UI.dll": {}
+        }
+      },
+      "Abstract.DataStructures/0.2.2": {
+        "runtime": {
+          "Abstract.DataStructures.dll": {
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Abstract.DataStructures.Reference/0.12.0.0": {
+        "runtime": {
+          "Abstract.DataStructures.dll": {
+            "assemblyVersion": "0.12.0.0",
+            "fileVersion": "0.12.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Abstract.DataStructures.UI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Abstract.DataStructures/0.2.2": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Abstract.DataStructures.Reference/0.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

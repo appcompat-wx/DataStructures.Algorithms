@@ -1,0 +1,12 @@
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\bin\Release\net6.0\Abstract.DataStructures.deps.json
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\bin\Release\net6.0\Abstract.DataStructures.dll
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\bin\Release\net6.0\Abstract.DataStructures.pdb
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\obj\Release\net6.0\DataStructures.GeneratedMSBuildEditorConfig.editorconfig
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\obj\Release\net6.0\DataStructures.AssemblyInfoInputs.cache
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\obj\Release\net6.0\DataStructures.AssemblyInfo.cs
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\obj\Release\net6.0\DataStructures.csproj.CoreCompileInputs.cache
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\obj\Release\net6.0\DataStructures.sourcelink.json
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\obj\Release\net6.0\Abstract.DataStructures.dll
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\obj\Release\net6.0\refint\Abstract.DataStructures.dll
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\obj\Release\net6.0\Abstract.DataStructures.pdb
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures\obj\Release\net6.0\ref\Abstract.DataStructures.dll

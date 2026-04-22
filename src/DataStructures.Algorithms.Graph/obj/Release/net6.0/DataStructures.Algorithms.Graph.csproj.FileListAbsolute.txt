@@ -1,0 +1,15 @@
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\bin\Release\net6.0\Abstract.DataStructures.Algorithms.Graph.deps.json
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\bin\Release\net6.0\Abstract.DataStructures.Algorithms.Graph.dll
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\bin\Release\net6.0\Abstract.DataStructures.Algorithms.Graph.pdb
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\bin\Release\net6.0\Abstract.DataStructures.dll
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\bin\Release\net6.0\Abstract.DataStructures.pdb
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\DataStructures.Algorithms.Graph.csproj.AssemblyReference.cache
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\DataStructures.Algorithms.Graph.GeneratedMSBuildEditorConfig.editorconfig
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\DataStructures.Algorithms.Graph.AssemblyInfoInputs.cache
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\DataStructures.Algorithms.Graph.AssemblyInfo.cs
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\DataStructures.Algorithms.Graph.csproj.CoreCompileInputs.cache
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\DataStru.F855B41E.Up2Date
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\Abstract.DataStructures.Algorithms.Graph.dll
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\refint\Abstract.DataStructures.Algorithms.Graph.dll
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\Abstract.DataStructures.Algorithms.Graph.pdb
+C:\AppBuild\Abstract DataStructures Algorithms\src\DataStructures.Algorithms.Graph\obj\Release\net6.0\ref\Abstract.DataStructures.Algorithms.Graph.dll
